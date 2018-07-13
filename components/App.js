@@ -21,6 +21,26 @@ App = React.createClass({
     },
 
     getGif: function (searchingText, callback) {
+        return new Promise (
+            function (resolve, reject) {
+                const  = newXMLHttpRequest();
+                request.onload = function() {
+                    if this.status===200) {
+                        resolve(this.response);
+                    } else {
+                        reject(new Error(this.statusText));
+                    }
+                    };
+                    request.onerror = function () {
+                        reject(new Error (
+                            `XMLHttpRequest Error: ${this.statusText}`
+                        ));
+                    };
+                    request.open('GET')
+                }
+            }
+        )
+        /*
         var GIPHY_API_URL = 'https://api.giphy.com';
         var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + 'AeMRGJvfOzX10nFqx1B7OdB9vUYxOZ7W' + '&tag=' + searchingText;
         var xhr = new XMLHttpRequest();
@@ -36,6 +56,7 @@ App = React.createClass({
             }
         };
         xhr.send();
+        */
     },
 
     render: function () {
