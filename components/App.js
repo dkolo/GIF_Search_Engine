@@ -44,6 +44,7 @@ App = React.createClass({
             }
             }
         )
+    },
         /*
         getGif: function (searchingText, callback) {
         var GIPHY_API_URL = 'https://api.giphy.com';
