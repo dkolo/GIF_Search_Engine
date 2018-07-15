@@ -23,6 +23,7 @@ App = React.createClass({
     getGif: function (searchingText) {
         return new Promise(
             function (resolve, reject) {
+                let url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + 'AeMRGJvfOzX10nFqx1B7OdB9vUYxOZ7W' + '&tag=' + searchingText;
                 const xhr = newXMLHttpRequest();
                 xhr.onload = function () {
                     if (xhr.status === 200) {
@@ -45,7 +46,6 @@ App = React.createClass({
             }
         )
     },
-let url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + 'AeMRGJvfOzX10nFqx1B7OdB9vUYxOZ7W' + '&tag=' + searchingText;
 getGif('url')
     .then(xhr => console.log('Contents: ' + xhr))
     .catch(error => console.error('Something went wrong', error));
