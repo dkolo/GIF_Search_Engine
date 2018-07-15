@@ -46,7 +46,7 @@ App = React.createClass({
         )
     },
 let url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + 'AeMRGJvfOzX10nFqx1B7OdB9vUYxOZ7W' + '&tag=' + searchingText;
-httpGet('url')
+getGif('url')
     .then(xhr => console.log('Contents: ' + xhr))
     .catch(error => console.error('Something went wrong', error));
         /*
