@@ -12,8 +12,8 @@ App = React.createClass({
             function (resolve, reject) {
                 const GIPHY_API_URL = 'https://api.giphy.com';
                 let url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + 'AeMRGJvfOzX10nFqx1B7OdB9vUYxOZ7W' + '&tag=' + searchingText;
-                xhr.open('GET', url);
                 const xhr = new XMLHttpRequest();
+                xhr.open('GET', url);
                 xhr.onload = function () {
                     if (xhr.status === 200) {
                         const data = JSON.parse(xhr.responseText).data;
@@ -21,7 +21,7 @@ App = React.createClass({
                             url: data.fixed_width_downsampled_url,
                             sourceUrl: data.url
                         };
-                        resolve(this.response);
+                        resolve(gif);
                     } else {
                         reject(new Error(this.statusText));
                     }
